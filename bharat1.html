@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celsius to Fahrenheit Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+      }
+      
+      .converter {
+        background-color: yellow;
+        padding: 50px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        
+       
+     
+      }
+      .convertf{
+        background-color: pink;
+        padding: 56px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+       
+       
+
+      }
+      .convertButton{
+        color: aliceblue;
+        background-color: rgb(83, 6, 83);
+      }
+      .h{
+        background-color: green;
+        color: white;
+
+      }
+      .container{
+        display: flex;
+        align-items: center;
+        width: 80px;
+       
+      }
+      .kelvin{
+        display: flex;
+        align-items: center;
+        width: 50px;
+        
+      
+
+      }
+      .convertk{
+        background-color: rgb(119, 235, 235);
+        padding: 50px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+      }
+      .convertck{
+        background-color: greenyellow;
+      padding: 50px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+      }
+</style>
+<body>
+  <div>
+    <h1>Temperature converters</h1>
+  </div>
+  <div class="container">
+  <div class="converter">
+    <h3>Celsius to Fahrenheit Converter</h3>
+    <input type="number" id="celsiusInput" placeholder="Enter Celsius">
+    <br>
+    <button id="convertButton">Convert</button>
+    <p id="result"></p>
+  </div>
+  <div class="convertf">
+    <h3>Fahrenheit to Celsius Converter</h3>
+    <input type="number" id="Faren" placeholder="Enter Farenheit">
+    <br>
+    <button id="convert">Convert</button>
+    <p id="result1"></p>
+  </div>
+</div>
+<div class="kelvin">
+    <div class="convertk" style="background-color: aqua;">
+      <h3>Kelvin to Celsius Converter</h3>
+      <input type="number" id="kel" placeholder="Enter kelvin">
+      <br>
+      <button id="convertkc">Convert</button>
+      <p id="result2"></p>
+    </div>
+      <div class="convertck">
+        <h3> Celsius to kelvin Converter</h3>
+        <input type="number" id="cell" placeholder="Enter celcious">
+        <br>
+        <button id="convertck">Convert</button>
+        <p id="result3"></p>
+  </div>
+</div>
+
+
+</body>
+<script>
+    document.getElementById("convertButton").addEventListener("click", function () {
+        const celsiusInput = parseFloat(document.getElementById("celsiusInput").value);
+        if (!isNaN(celsiusInput)) {
+          const fahrenheit = celsiusInput * 9/5 + 32;
+          document.getElementById("result").textContent = `${celsiusInput}°C is ${fahrenheit.toFixed(2)}°F`;
+        } else {
+          document.getElementById("result").textContent = "Invalid input";
+        }
+      });
+      document.getElementById("convert").addEventListener("click", function () {
+        const fInput = parseFloat(document.getElementById("Faren").value);
+        if (!isNaN(fInput)) {
+          const celcious = (fInput-32)*(5/9);
+          document.getElementById("result1").textContent = `${fInput}°F is ${celcious.toFixed(2)}°C`;
+        } else {
+          document.getElementById("result").textContent = "Invalid input";
+        }
+      });
+      document.getElementById("convertkc").addEventListener("click", function () {
+        const kInput= parseFloat(document.getElementById("kel").value);
+        if (!isNaN(kInput)) {
+          const cel =kInput-273.15 ;
+          document.getElementById("result2").textContent = `${kInput}K is ${cel.toFixed(2)}°C`;
+        } else {
+          document.getElementById("result").textContent = "Invalid input";
+        }
+      });
+      document.getElementById("convertck").addEventListener("click", function () {
+        const cInput = parseFloat(document.getElementById("cell").value);
+        if (!isNaN(cInput)) {
+          const kel= cInput+273.15;;
+          document.getElementById("result3").textContent = `${cInput}°C is ${kel.toFixed(2)}K`;
+        } else {
+          document.getElementById("result").textContent = "Invalid input";
+        }
+      });
+      
+</script>
+</html>
